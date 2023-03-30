@@ -4,8 +4,6 @@ let mongoose = require('mongoose'),
     User = mongoose.model('User');
 
 exports.register = async function (req, res) {
-
-  
     await User.findOne({ email: req.body.email }).then((user) => {
         if (user) {
             return res.status(400).json({ message: 'Such user already exists' });

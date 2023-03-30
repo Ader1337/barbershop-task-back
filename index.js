@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/userModel')
+const Barber = require('./models/barberModel')
 const bodyParser = require('body-parser')
 const jsonwebtoken = require("jsonwebtoken")
 
@@ -48,9 +49,10 @@ app.listen(3000, () => {
 })
 
 
-let routes = require('./routes/userRoute');
-
-routes(app);
+let userRoutes = require('./routes/userRoute');
+let barbersRoutes = require('./routes/barberRoute')
+userRoutes(app);
+barbersRoutes(app)
 
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })
