@@ -50,6 +50,7 @@ exports.loginRequired = function (req, res, next) {
 exports.profile = function (req, res, next) {
     const decode = jwt.verify(req.header('authorization'), 'RESTFULAPIs');
     if (decode) {
+        res.user = decode
         next();
     }
     else {

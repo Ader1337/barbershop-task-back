@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/userModel')
 const Barber = require('./models/barberModel')
+const Record = require('./models/recordModel')
 const bodyParser = require('body-parser')
 const jsonwebtoken = require("jsonwebtoken")
 
@@ -34,7 +35,7 @@ app.use(bodyParser.json());
 app.listen(3000, () => {
     console.log(`Server Started at ${3000}`)
 
-    app.use(function (req, res, next) {
+   /*  app.use(function (req, res, next) {
         if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
             jsonwebtoken.verify(req.headers.authorization.split(' ')[1], 'RESTFULAPIs', function (err, decode) {
                 if (err) req.user = undefined;
@@ -45,14 +46,16 @@ app.listen(3000, () => {
             req.user = undefined;
             next();
         }
-    });
+    }); */
 })
 
 
 let userRoutes = require('./routes/userRoute');
 let barbersRoutes = require('./routes/barberRoute')
+let recordRoutes = require('./routes/recordRoute')
 userRoutes(app);
 barbersRoutes(app)
+recordRoutes(app)
 
 app.use(function (req, res) {
     res.status(404).send({ url: req.originalUrl + ' not found' })

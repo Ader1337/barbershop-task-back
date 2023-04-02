@@ -18,6 +18,18 @@ let RecordSchema = new Schema({
     barberId: {
         type: String,
         required: true
+    },
+    formattedDate: {
+        type: String,
+        required: true
+    },
+    name: {
+        type: String,
+        required: true
+    },
+    phone: {
+        type: String,
+        required: true
     }
 });
 
