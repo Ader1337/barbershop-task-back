@@ -12,3 +12,19 @@ exports.getBarbers = async function (req, res, next) {
     }
    
 };
+
+/* exports.updateBarber = async function (req, res, next) {
+    try {
+        console.log(req.body)
+        let myquery = { _id: req.body.id };
+        let newvalues = { $set: { name: req.body.newName } };
+        await Barber.updateOne(myquery, newvalues)
+        res.status(200).send()
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+
+};
+ */
+

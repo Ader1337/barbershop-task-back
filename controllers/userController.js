@@ -40,7 +40,6 @@ exports.sign_in = async function (req, res) {
 };
 
 exports.loginRequired = function (req, res, next) {
-    console.log(req.header('authorization'))
     if (req.header('authorization')) {
         next();
     } else {

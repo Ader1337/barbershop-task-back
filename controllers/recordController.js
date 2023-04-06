@@ -7,7 +7,6 @@ let workingTimes = ['9:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00'
 
 exports.addRecord = async function (req, res) {
     let newRecord = new Record({ ...req.body, userId: res.user._id });
-    console.log(newRecord)
     newRecord.save().then(function (models) {
         return res.status(200).send()
     }).catch(function (err) {
