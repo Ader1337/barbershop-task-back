@@ -7,6 +7,10 @@ let RecordSchema = new Schema({
         type: Date,
         required: true
     },
+    fullDate: {
+        type: Date,
+        required: true
+    },
     time: {
         type: String,
         required: true
@@ -28,6 +32,10 @@ let RecordSchema = new Schema({
         required: true
     },
     phone: {
+        type: String,
+        required: true
+    },
+    barberName: {
         type: String,
         required: true
     }

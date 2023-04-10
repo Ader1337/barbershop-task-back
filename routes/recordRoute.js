@@ -7,6 +7,8 @@ module.exports = (app) => {
         .get(userHandlers.loginRequired, userHandlers.profile, recordHandler.getUserRecord);
     app.route('/api/record/available')
         .get(userHandlers.loginRequired, userHandlers.profile, recordHandler.getAvailableTime);
+    app.route('/api/records')
+        .get(userHandlers.loginRequired, userHandlers.profile, recordHandler.getRecords);
     app.route('/api/record')
         .delete(userHandlers.loginRequired, userHandlers.profile, recordHandler.deleteRecord);
    /*  app.route('/api/auth/register')

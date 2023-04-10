@@ -47,14 +47,32 @@ exports.getAvailableTime = async function (req, res) {
             if (!isBusyTime)
                 availableTimes.push(time)
         })
-       /*  data.forEach((record) => {
-            let index = workingTimes.indexOf(record.time)
-
-            if (index !== -1)
-                availableTimes.splice(index, 1)
-        }) */
+        /*  data.forEach((record) => {
+             let index = workingTimes.indexOf(record.time)
+ 
+             if (index !== -1)
+                 availableTimes.splice(index, 1)
+         }) */
 
         res.status(200).json({ availableTimes: availableTimes })
+
+    }
+    catch (error) {
+        res.status(500).json({ message: error.message })
+    }
+};
+
+exports.getRecords = async function (req, res) {
+    try {
+        let data
+        if (req.query.barberId)
+            data = await Record.find({ barberId: req.query.barberId });
+        else
+            data = await Record.find();
+        data.sort(function (a, b) {
+            return new Date(b.fullDate) - new Date(a.fullDate);
+        });
+        res.status(200).json(data)
 
     }
     catch (error) {
