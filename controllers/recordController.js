@@ -83,6 +83,7 @@ exports.getRecords = async function (req, res) {
 
 
 exports.getUserRecord = async function (req, res) {
+   
     try {
         const data = await Record.find({
             date: {

@@ -2,10 +2,10 @@ const express = require('express');
 const mongoose = require('mongoose');
 const User = require('./models/userModel')
 const Barber = require('./models/barberModel')
+const BestBarber = require('./models/bestBarberModel')
 const Record = require('./models/recordModel')
 const bodyParser = require('body-parser')
 const jsonwebtoken = require("jsonwebtoken")
-
 require('dotenv').config({ path: "environment.env" });
 
 const mongoString = process.env.DATABASE_URL
